@@ -1,38 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:layout_prototype/pages/find_places_page.dart';
+import 'package:layout_test_task/pages/find_places_page/find_places_page.dart';
 
 class StartingScreenPage extends StatelessWidget {
+  const StartingScreenPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(
-                  'assets/main_background.jpg',
-                ),
-              ),
-            ),
+          Image.asset(
+            'assets/main_background.jpg',
+            fit: BoxFit.cover,
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                gradient: LinearGradient(
-                    begin: FractionalOffset.topCenter,
-                    end: FractionalOffset.bottomCenter,
-                    colors: [
-                      Colors.grey.withOpacity(0.0),
-                      Colors.blue[900],
-                    ],
-                    stops: [
-                      0.0,
-                      1.0
-                    ])),
+              color: Colors.white,
+              gradient: LinearGradient(
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                colors: [
+                  Colors.grey.withOpacity(0.0),
+                  Colors.blue[900] ?? Colors.blue,
+                ],
+                stops: const [0.0, 1.0],
+              ),
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -45,24 +40,20 @@ class StartingScreenPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              Center(
-                child: Wrap(
-                  children: [
-                    Text(
-                      'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.',
-                      style: GoogleFonts.poppins(),
-                    ),
-                  ],
-                ),
+              const SizedBox(
+                height: 16,
               ),
-              SizedBox(
+              Text(
+                'Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.',
+                style: GoogleFonts.poppins(),
+              ),
+              const SizedBox(
                 height: 16,
               ),
               Container(
                 height: 48,
                 width: 128,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.all(
                     Radius.circular(24.0),
@@ -76,7 +67,7 @@ class StartingScreenPage extends StatelessWidget {
                           'Sign In  ',
                           style: GoogleFonts.poppins(color: Colors.white),
                         ),
-                        Icon(
+                        const Icon(
                           Icons.arrow_right_alt_outlined,
                           color: Colors.white,
                         ),
@@ -85,27 +76,25 @@ class StartingScreenPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FindPlacesPage(),
+                        builder: (context) => const FindPlacesPage(),
                       ),
                     );
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Center(
-                child: Container(
-                  child: TextButton(
-                    child: Text(
-                      'Create an account',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
-                      ),
+                child: TextButton(
+                  child: Text(
+                    'Create an account',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
                     ),
-                    onPressed: () {},
                   ),
+                  onPressed: () {},
                 ),
               ),
               const SizedBox(

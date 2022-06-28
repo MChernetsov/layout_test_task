@@ -6,18 +6,23 @@ class PlaceCardWidget extends StatelessWidget {
   final String image;
   final String name;
   final VoidCallback onPressed;
-  PlaceCardWidget(
-      {@required this.place,
-      @required this.image,
-      @required this.name,
-      @required this.onPressed});
+
+  const PlaceCardWidget({
+    Key? key,
+    required this.place,
+    required this.image,
+    required this.name,
+    required this.onPressed,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onPressed,
       child: Container(
         height: 212,
         width: 160,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(
             Radius.circular(24.0),
@@ -28,7 +33,11 @@ class PlaceCardWidget extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(24.0),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      24,
+                    ),
+                  ),
                   child: Image.asset(
                     image,
                     height: 160,
@@ -36,14 +45,14 @@ class PlaceCardWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
                         height: 24,
                         width: 24,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(
                             Radius.circular(16.0),
@@ -83,14 +92,14 @@ class PlaceCardWidget extends StatelessWidget {
                 const SizedBox(
                   width: 8,
                 ),
-                Icon(
+                const Icon(
                   Icons.place_outlined,
                   color: Colors.grey,
                   size: 16,
                 ),
                 Text(
                   place,
-                  style: GoogleFonts.poppins(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 8,
                   ),
@@ -100,7 +109,6 @@ class PlaceCardWidget extends StatelessWidget {
           ],
         ),
       ),
-      onTap: onPressed,
     );
   }
 }
