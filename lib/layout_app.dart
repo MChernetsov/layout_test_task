@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:layout_prototype/pages/starting_screen_page.dart';
+import 'package:layout_test_task/pages/starting_screen_page.dart';
 
 class LayoutApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const LayoutApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StartingScreenPage(),
+      home: const StartingScreenPage(),
     );
   }
 }

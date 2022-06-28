@@ -1,23 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class Place {
-  List<String> photos;
-  String name;
-  String nearestCity;
-  String type;
-  int price;
-  num rating;
+part 'place.freezed.dart';
 
-  int hotelsAvailable;
-  String description;
-  Place({
-    @required this.name,
-    @required this.nearestCity,
-    @required this.type,
-    @required this.photos,
-    @required this.price,
-    @required this.rating,
-    @required this.hotelsAvailable,
-    @required this.description,
-  });
+@freezed
+class Place with _$Place {
+  const factory Place({
+    required String name,
+    required String nearestCity,
+    required String type,
+    required List<String> photos,
+    required int price,
+    required double rating,
+    required int hotelsAvailable,
+    required String description,
+  }) = _Place;
 }
